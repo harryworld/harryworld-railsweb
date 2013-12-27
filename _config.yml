@@ -6,6 +6,7 @@ author:
   email:      "sanvibyfish@gmail.com"
   avatar:     "https://1.gravatar.com/avatar/ea7613ac0b30a805f357b42bd2e1923c?s=440"
 markdown:     rdiscount
-permalink:    pretty
+permalink: /posts/:title
 pygments:     true
 paginate:     5
+disqus_name: sanvibyfish

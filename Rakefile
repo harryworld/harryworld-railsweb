@@ -67,8 +67,9 @@ task :post do
     post.puts 'description: ""'
     post.puts "category: \"#{category.gsub(/-/,' ')}\""
     post.puts "tags: #{tags}"
+    post.puts "comments: true"
     post.puts "---"
-    post.puts "{% include JB/setup %}"
+    # post.puts "{% include JB/setup %}"
   end
 end # task :post
 
