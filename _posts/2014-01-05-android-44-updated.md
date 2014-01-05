@@ -48,16 +48,18 @@ Android 操作系统已逐渐成熟，谷歌开始将注意力转向一些底层
 
 ##Advertising ID
 使用新追踪技术替代Cookie
+
 网易：[Google将用新的追踪技术取代Cookies](http://tech.163.com/13/0922/15/99CSP6SM000915BF.html)
+
 Android Developer: [Advertising ID](https://developer.android.com/google/play-services/id.html)
 
 ##其他相关
-kitkat 的出现代表Android开始进入封闭的生态圈了，Google正式完全接管Android生态系统
-要调用地图api得用google play service
-要调用用户追踪的识别符只能用google play service生成的ad id
-Hangouts正式代替原有的短信
-通话开始调用Google自己的云端黄页
-启动器变成了Google Now的一部分(仅限于Nexus 5)
+ - kitkat 的出现代表Android开始进入封闭的生态圈了，Google正式完全接管Android生态系统
+ - 要调用地图api得用google play service
+ - 要调用用户追踪的识别符只能用google play service生成的ad id
+ - Hangouts正式代替原有的短信
+ - 通话开始调用Google自己的云端黄页
+ - 启动器变成了Google Now的一部分(仅限于Nexus 5)
 
 
 ##部分看法
