@@ -1,61 +1,49 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width; initial-scale=1.0, maximum-scale=1">
-    <link href="/public/favicon.ico" rel="shortcut icon" type="image/x-icon">
-    <link href="http://gmpg.org/xfn/11" rel="profile">
+<!doctype html> 
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+		<title>{{ page.title }} - Rails Girls</title>
+		<!--[if lt IE 9]>
+        <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <link rel="stylesheet" href="/css/bootstrap.css">
+        <link rel="stylesheet" href="/css/code.css">
+        <link rel="stylesheet" href="/css/style.css">
 
-    <title>
-      {% if page.title %}{{ page.title }} &middot; {% endif %}
-      {{ site.tagline }}
-    </title>
+        <link rel="shortcut icon" href="/favicon.png">
+	</head>
+	<body>
+	    <header>
+	        <div class="container">
+    	        <a class="span3" id="logo" href="/"><img src="/img/railsgirls-guides.png" alt="Rails Girls Guides" /></a>
+                <nav>
+                </nav>
+            </div>
+	    </header>
+	    
+	    <article class="container">
+	        <div class="span10">
+		    {{ content }}
+		    </div>
+		</article>
+		
+		<footer>
+		    <p>This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-Share Alike 3.0 License</a></p>
+		    
+		    <p><a href="http://railsgirls.com">Rails Girls</a> &middot; Crafted with excitement from Helsinki, Finland &middot; Follow us on <a href="http://twitter.com/railsgirls">Twitter</a> and <a href="https://www.facebook.com/railsgirls">Facebook</a></p>
+		</footer>
+		<script type="text/javascript">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="/public/css/hyde.css">
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400italic,400,600,700|Abril+Fatface">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-19631067-3']);
+          _gaq.push(['_trackPageview']);
 
-    <!-- Icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/touch-icon-144-precomposed.png">
-    <link rel="shortcut icon" href="/public/favicon.png">
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
 
-    <!-- RSS -->
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
-  </head>
-  <body>
-
-    <header class="masthead">
-      <div class="masthead-inner">
-        <img src="{{site.author.avatar}}" style="border-radius: 10em;" alt="" width="128" height="128"/>
-        <h2>{{site.author.name}}</h2>
-        <p class="lead">一个有志向的青年</p>
-
-        <div class="colophon">
-          <ul class="colophon-links">
-            <li><a href="/">Home</a></li>
-            <li>
-              <a href="/posts.html">Posts</a>
-            </li>
-            <li>
-              <a href="https://twitter.com/sanvibyfish">Twitter</a>
-            </li>
-            <li>
-              <a href="https://github.com/sanvibyfish">GitHub</a>
-            </li>
-            <li>
-              <a href="/about.html">About Me</a>
-            </li>
-
-          </ul>
-          <p>&copy; 2013. {{ site.author.name }} All rights reserved.</p>
-        </div>
-
-      </div>
-    </header>
-
-    <div class="content container">
-      {{ content }}
-    </div>
-
-  </body>
+        </script>
+	</body>
 </html>

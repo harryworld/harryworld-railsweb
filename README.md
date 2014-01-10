@@ -1,9 +1,43 @@
-# [Hyde](http://andhyde.com)
+# Rails Girls Guides
 
-An elegant open source, mobile-first theme for [Jekyll](https://github.com/mojombo/jekyll). It includes lightweight styles and placeholder content to get you up and running with a simple blog in no time.
+Our aim is to give tools for women to understand technology. The Rails Girls events do this by providing a great first experience on building the Internet.
 
-![Hyde screenshot](https://f.cloud.github.com/assets/98681/1330948/de10196c-353f-11e3-86d0-8e967dd95722.png)
+Rails Girls was founded in end of 2010 in Helsinki. Originally intended as a onetime event, we never thought to see so many local chapters all around the world! This guide has been put together to help you get started.
 
-Open sourced under the [MIT license](LICENSE.md).
+You can use our materials and instructions to roll out your own workshop in your city, workplace or kitchen! Read more about Rails Girls at http://railsgirls.com
 
-<3
+## Quick start
+
+View the guides at http://guides.railsgirls.com or clone this repo and install & run [jekyll](https://github.com/mojombo/jekyll)
+
+### Installing jekyll
+
+`cd railsgirls.github.com`
+
+`bundle install`
+
+### Run jekyll
+
+`jekyll --server --auto`
+
+
+## Contributing a Guide
+
+To contribute a guide, view the instructions at http://guides.railsgirls.com/contributing
+
+## Twitter
+
+For updates and more follow [@railsgirls](https://twitter.com/railsgirls)
+
+## Website & Blog 
+
+Official website and blog for Rails Girls movement can be found at http://railsgirls.com
+
+## Credits
+
+* Karri Saarinen / [@karrisaarinen](https://twitter.com/karrisaarinen) / [github](http://github.com/ksaa)
+* Linda Liukas / [@lindaliukas](https://twitter.com/lindaliukas) / [github](http://github.com/lindaliukas)
+* Vesa Vänskä / [@vesan](https://twitter.com/vesan) / [github](http://github.com/vesan)
+* Terence Lee / [@hone02](https://twitter.com/hone02) [github](http://github.com/hone)
+
+..and all the other coaches and people making Rails Girls awesome.

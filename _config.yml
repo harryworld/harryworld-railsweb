@@ -1,12 +1,16 @@
-title:        Sanvi Lu
-tagline:      "Sanvi 的小屋"
-url:          http://sanvibyfish.github.io
-author:
-  name:       "Sanvi Lu"
-  email:      "sanvibyfish@gmail.com"
-  avatar:     "https://1.gravatar.com/avatar/ea7613ac0b30a805f357b42bd2e1923c?s=440"
-markdown:     rdiscount
-permalink: /posts/:title
-pygments:     true
-paginate:     5
-disqus_name: sanvibyfish
+destination: ./_site
+auto:        false
+lsi:         false
+server_port: 4000
+pygments:    true
+markdown:    maruku
+permalink:   pretty
+maruku:
+  use_tex:    false
+  use_divs:   false
+  png_dir:    images/latex
+  png_url:    /images/latex
+
+
+#url: http://localhost:4000/railsgirls.github.com.scn/
+#baseurl: /railsgirls.github.com.scn/
