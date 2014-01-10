@@ -8,7 +8,7 @@ permalink: app
 
 *原作者 Vesa Vänskä, [@vesan](https://twitter.com/vesan)*
 
-      
+
 请确认您已经完成了[**安装Rails**](/install)这个步骤
 
 
@@ -67,75 +67,22 @@ rails s
 
 网页的外观设计还有待我们动手改进。用Twitter的Bootstrap项目，我们可以轻松的生成网页的stylesheet
 
-打开app/views/layouts/application.html.erb 找到这一行
+打开Gemfile,新增一行
 
 {% highlight erb %}
-<%= stylesheet_link_tag "application" %>
+gem "twitter-bootstrap-rails"
 {% endhighlight %}
 
-并在它上面加入以下代码
+在控制台中键入
 
 {% highlight erb %}
-<link rel="stylesheet" href="http://railsgirls.com/assets/bootstrap.css">
+rails generate bootstrap:install static
+rails g bootstrap:layout application fluid
+rails g bootstrap:themed Ideas
+rails s
 {% endhighlight %}
 
-然后把
-
-{% highlight erb %}
-<%= yield %>
-{% endhighlight %}
-
-换成
-
-{% highlight erb %}
-<div class="container">
-    <%= yield %>
-</div>
-{% endhighlight %}
-
-现在我们对ideas表格添加页眉、页脚和格式。
-
-找到这个文件 application.html.erb，在`<body>`下添加：
-
-{% highlight html %}
-<div class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-        <div class="container">
-            <a class="brand" href="/">The Idea app</a>
-            <ul class="nav">
-                <li class="active"><a href="/ideas">Ideas</a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-{% endhighlight %}
-
-并在`</body>`之上添加：
-
-{% highlight html %}
-<footer>
-    <div class="container">
-        Rails Girls 2012
-    </div>
-</footer>
-{% endhighlight %}
-
-打开文件 app/assets/stylesheets/application.css 并在最底端添加：
-
-{% highlight css %}
-#logo { 
-    font-size: 20px;
-    font-family: &quot;Helvetica Neue&quot;,Helvetica,Arial,sans-serif;
-    float: left;
-    padding: 10px;
-}
-body { padding-top: 100px; }
-footer { margin-top: 100px; }
-table, td, th { vertical-align: middle !important; border: none !important; }
-th { border-bottom: 1px solid #DDD !important; }
-td.picture { width: 140px; }
-td.picture img { width: 140px; }
-{% endhighlight %}
+在浏览器中打开 [http://localhost:3000](http://localhost:3000)。
 
 **教练:** 请解释CSS和layouts。
 
@@ -237,11 +184,18 @@ del public\index.html
 然后打开 config/routes.rb 并在第二行加入以下代码：
 
 {% highlight ruby %}
-root :to => redirect("/ideas")
+  root 'ideas#index'
 {% endhighlight %}
 
 **教练:** 请谈谈Routes。
 
+##6. 创建静态页面 (Pages)
+
+在控制台中键入
+
+{% highlight sh %}
+rails generate controller pages info
+{% endhighlight %}
 
 ## 下来呢?
 
@@ -249,9 +203,9 @@ root :to => redirect("/ideas")
 * 加入评分系统（Ratings）
 * 用 CoffeeScript（或 JavaScript）增加互动性
 * 加入缩略图支持，从而使图片加载更快
-      
+
 
 ## 更多
 
-* 教程 1: [加入评论功能 作者: Janika Liiv](http://janikaliiv.eu/homework/)
+* 教程 1: [加入评论功能 作者: Janika Liiv, Harry Ng](http://janikaliiv.eu/homework/)
 * 教程 2: [用Heroku把你的程序搬上网络 作者： Terence Lee](/heroku)
