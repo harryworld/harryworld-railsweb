@@ -9,6 +9,10 @@ permalink: install
 
 要用Ruby on Rails开发程序, 我们首先需要在我们的计算机中安装一些程序。
 
+除了以下的说明，@ JASL同学还为我们准备了更新的安装教程。(更新︰2014年1月11日)
+
+* [Ruby on Rails 简易安装攻略 for RailsGirls](http://ruby-china.org/topics/16684)
+
 从下面适合您使用的操作系统的教程进行安装。如果碰到问题，不用着急，欢迎联系我们，我们可以一起来想办法。
 
 * [OS X下的安装指南](#setup_for_os_x)
@@ -53,8 +57,6 @@ permalink: install
 bash < <(curl -s https://raw.github.com/railsgirls/installation-scripts/master/rails-install-osx.sh)
 {% endhighlight %} 
         
- ![You've done it](images/complete.png "You've done it")
-
 如果一切顺利，我们现在应该拥有一个完备的Ruby on Rails编程环境啦，祝贺你！
         
 **最后一步** 安装用于编辑代码文件的文本编辑器。在本工作室环境下我们推荐使用免费软件Komodo Edit。

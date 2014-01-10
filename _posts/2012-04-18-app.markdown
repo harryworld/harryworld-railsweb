@@ -14,7 +14,7 @@ permalink: app
 
 ## 0: 基本工具软件
 
-* 任意文本编辑器(例如Komodo Edit，Ultraedit甚至记事本，保存时编码请选择UTF-8而不是GBK/GB2132) ，用来编辑代码和文件。
+* 任意文本编辑器 (例如 Sublime Text, Komodo Edit, Vim, Emacs, and Gedit) ，用来编辑代码和文件。
 * 终端或者又称命令行、控制台甚至命令提示符（这里翻译将用“控制台”），用来启动Rails服务器和运行指令。
 * 浏览器，用来预览你的程序。
 
@@ -34,8 +34,23 @@ permalink: app
 {% highlight sh %}
 mkdir projects
 cd projects
+{% endhighlight %}
+
+现在建立一个名为 `railsgirls` 的应用
+
+{% highlight sh %}
 rails new railsgirls
+{% endhighlight %}
+
+一个名为 `railsgirls` 的目录已经建立，可以切换至目录内
+
+{% highlight sh %}
 cd railsgirls
+{% endhighlight %}
+
+第一次，把应用运作起来
+
+{% highlight sh %}
 rails s
 {% endhighlight %}
 
@@ -43,7 +58,7 @@ rails s
 
 在控制台中键入CTRL-C 可以退出服务。
 
-**教练:** 请解释每一步指令的含义，以及我们刚刚生成了什么（哪些文件）？ Rails服务是做什么用的？ 并介绍MVC。
+**教练:** 请解释每一步指令的含义，以及我们刚刚生成了什么（哪些文件）？ Rails服务是做什么用的？ 
 
 
 ## 2: 创建一个名为idea的Scaffold
@@ -52,6 +67,11 @@ rails s
 
 {% highlight sh %}
 rails generate scaffold idea name:string description:text picture:string
+{% endhighlight %}
+
+运行指令，把数据库的结构建立出来
+
+{% highlight sh %}
 rake db:migrate
 rails s
 {% endhighlight %}
@@ -60,23 +80,34 @@ rails s
 
 探索一下你的网页然后CTRL-C 退出服务。
 
-**教练:** 什么是scaffold，什么是migration。
+**教练:** 什么是scaffold，什么是migration。并介绍MVC。
 
 
 ## 3: 设计
 
 网页的外观设计还有待我们动手改进。用Twitter的Bootstrap项目，我们可以轻松的生成网页的stylesheet
 
-打开Gemfile,新增一行
+打开Gemfile，新增一行
 
 {% highlight erb %}
 gem "twitter-bootstrap-rails"
 {% endhighlight %}
 
-在控制台中键入
+在控制台中键入，进行安装
+
+{% highlight erb %}
+bundle install
+{% endhighlight %}
+
+运行指令，安装 Bootstrap 的相关资源
 
 {% highlight erb %}
 rails generate bootstrap:install static
+{% endhighlight %}
+
+生成页面布局，及为前面建立的 `Idea模板` 进行主题化
+
+{% highlight erb %}
 rails g bootstrap:layout application fluid
 rails g bootstrap:themed Ideas
 rails s
@@ -84,7 +115,7 @@ rails s
 
 在浏览器中打开 [http://localhost:3000](http://localhost:3000)。
 
-**教练:** 请解释CSS和layouts。
+**教练:** 请解释什么是库(libraries)以及为什么需要使用它们。请解释CSS和layouts。
 
 
 ## 4: 添加图片上传功能
@@ -94,21 +125,27 @@ rails s
 打开文件 Gemfile 并找到这一行
 
 {% highlight ruby %}
-gem 'carrierwave'
+gem 'rails'
 {% endhighlight %}
 
 在它下面添加
 
 {% highlight ruby %}
-gem 'sqlite3'
+gem 'carrierwave'
 {% endhighlight %}
 
-**教练:** 请解释什么是库(libraries)以及为什么需要使用它们。不妨也聊聊开源？
 
-现在我们来生成主管图片上传的代码，打开控制台并键入：
+**教练:** 请介绍什么是开源？Rails世界的开源环境对开发有什么帮助？
+
+在控制台中键入，进行安装
+
+{% highlight erb %}
+bundle install
+{% endhighlight %}
+
+现在我们来生成主管图片上传的代码，键入：
 
 {% highlight sh %}
-bundle
 rails generate uploader Picture
 {% endhighlight %}
 
@@ -136,18 +173,6 @@ mount_uploader :picture, PictureUploader
 <%= f.file_field :picture %>
 {% endhighlight %}
 
-并将这一行：
-
-{% highlight erb %}
-<%= form_for(@idea) do |f| %>
-{% endhighlight %}
-
-改成：
-
-{% highlight erb %}
-<%= form_for(@idea, :html => {:multipart => true}) do |f| %>
-{% endhighlight %}
-
 我们的view还是不够耐看，因为它只显示文件路径。我们可以这么改进：
 
 打开 app/views/ideas/show.html.erb 并将
@@ -162,6 +187,18 @@ mount_uploader :picture, PictureUploader
 <%= image_tag(@idea.picture_url, :width => 600) if @idea.picture.present? %>
 {% endhighlight %}
 
+打开 app/views/ideas/index.html.erb 并将
+
+{% highlight erb %}
+<%= idea.picture %>
+{% endhighlight %}
+
+改为
+
+{% highlight erb %}
+<%= image_tag(idea.picture_url, :width => 200) if idea.picture.present? %>
+{% endhighlight %}
+
 **教练:** 聊聊HTML。
 
 
@@ -169,19 +206,7 @@ mount_uploader :picture, PictureUploader
 
 如果你试图打开 [http://localhost:3000](http://localhost:3000) 看到的还是默认的页面，我们需要把它重定向到ideas页面。
 
-在 OS X 或 Linux 下，在控制台下运行:
-
-{% highlight sh %}
-rm public/index.html
-{% endhighlight %}
-
-在 Windows 下，在控制台下运行：
-
-{% highlight bat %}
-del public\index.html
-{% endhighlight %}
-
-然后打开 config/routes.rb 并在第二行加入以下代码：
+打开 config/routes.rb 并在第二行加入以下代码：
 
 {% highlight ruby %}
   root 'ideas#index'
@@ -203,9 +228,11 @@ rails generate controller pages info
 * 加入评分系统（Ratings）
 * 用 CoffeeScript（或 JavaScript）增加互动性
 * 加入缩略图支持，从而使图片加载更快
+* 用户登入系统
 
 
 ## 更多
 
-* 教程 1: [加入评论功能 作者: Janika Liiv, Harry Ng](http://janikaliiv.eu/homework/)
+* 教程 1: [加入评论功能 作者: Janika Liiv](http://janikaliiv.eu/homework/)
 * 教程 2: [用Heroku把你的程序搬上网络 作者： Terence Lee](/heroku)
+* 教程 3: [以上教程的源代码 作者： Harry Ng](https://github.com/harryworld/railsgirlsweb) -> [完成品](http://railsgirlsweb.herokuapp.com/)

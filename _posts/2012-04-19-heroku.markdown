@@ -55,7 +55,7 @@ __教练__: 现在该是时候谈谈版本控制系统和git了。
 
 #### 创建Heroku App
 
-我们需要创建一个Heroku App，在控制台中键入 `heroku create --stack cedar` ，得到如下输出：
+我们需要创建一个Heroku App，在控制台中键入 `heroku apps:create` ，得到如下输出：
 
 {% highlight sh %}
 Creating evening-sky-7498... done, stack is cedar
