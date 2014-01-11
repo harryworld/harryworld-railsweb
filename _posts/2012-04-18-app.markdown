@@ -113,7 +113,7 @@ rails g bootstrap:themed Ideas
 rails s
 {% endhighlight %}
 
-在浏览器中打开 [http://localhost:3000](http://localhost:3000)。
+在浏览器中打开 [http://localhost:3000/ideas](http://localhost:3000/ideas)。
 
 **教练:** 请解释什么是库(libraries)以及为什么需要使用它们。请解释CSS和layouts。
 
